@@ -1,0 +1,28 @@
+main.projectsPage {
+  width: 80vw;
+  margin: 2% 8%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 0px;
+}
+
+.projectsPage section {
+  grid-area: 1 / 1 / 2 / 2;
+  background: white;
+  color: black;
+  padding: 30px;
+}
+.projectsPage section a {
+  color: black;
+}
+.projectsPage aside {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.stars {
+  color: orangered;
+}
+.project {
+  margin-bottom: 30px;
+}
