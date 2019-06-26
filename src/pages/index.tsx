@@ -28,10 +28,7 @@ const StyledMain = styled("main")`
   }
 `
 export type MainProps = { children: React.ReactNode }
-export const Main: React.FC<MainProps> = ({ children }) => {
-  console.log({ children })
-  // const [, set] = React.useState();
-  React.useEffect(() => {}, [])
+export const Main: React.FC<MainProps> = () => {
   return (
     <StyledMain>
       <div className="background">
@@ -53,9 +50,3 @@ export const Main: React.FC<MainProps> = ({ children }) => {
 }
 
 export default Main
-
-// export default () => (
-
-//   <main>
-//   </main>
-// )

@@ -1,5 +1,7 @@
-export interface Post {
-  body: string
-  id: number
-  title: string
+interface ProjectType {
+  id: string
+  name: string
+  stargazers_count: string
+  homepage: string
+  description: string
 }

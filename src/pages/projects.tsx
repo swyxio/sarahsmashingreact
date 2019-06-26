@@ -1,19 +1,13 @@
 import React from "react"
+import { useRouteData } from "react-static"
 import "./projects.css"
-type ProjectType = { id: string; name: string; stargazers_count: string; homepage: string; description: string }
 export default () => {
-  const [githubProjects, setList] = React.useState([])
-  React.useEffect(() => {
-    fetch(`https://api.github.com/users/sdras/repos?page=1&per_page=100`)
-      .then((res) => res.json())
-      .then(setList)
-  }, [])
-
+  const { data }: { data: ProjectType[] } = useRouteData()
   return (
     <main className="projectsPage">
       <section>
         <h1>Projects</h1>
-        {githubProjects.map((project: ProjectType) => (
+        {data.map((project: ProjectType) => (
           <div key={project.id} className="project">
             <h3>
               <a href="project.html_url">{project.name}</a>

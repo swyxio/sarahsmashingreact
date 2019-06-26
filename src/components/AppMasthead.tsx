@@ -1,13 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
+import { TimelineMax, TweenMax, Sine } from 'gsap'
 const StyledSVG = styled('svg')`
 .cls-2{fill:#242638}.cls-25{fill:#fff}.cls-4{fill:#326393}.cls-5,.cls-56{fill:#a8bdd1}.blue-shade-11,.cls-9{opacity:.17}.blue-shade-11,.cls-56,.cls-9{mix-blend-mode:multiply}.blue-shade-11,.cls-10{fill:#134c83}.cls-11{fill:#585858}.cls-16{fill:#fcdfd6}.cls-20{fill:#d2dde7}.cls-27{fill:#f79575}.cls-33{fill:#6f6f6f}.cls-47{fill:#f39797}.cls-50{fill:#929292}.cls-56{opacity:.68}.cls-67{fill:#f9caca}.cls-70{fill:#f9c9c9}.cls-76{fill:#f9cccc}.cls-78{fill:#f8c2c2}.cls-87{fill:#d0dbe6;opacity:.16}.cls-90{fill:#f9cece}.cls-91{fill:#f36d40}
 `
 // export type AppMastHeadProps = { }
 export class AppMastHead extends React.Component {
 
-    // const [, set] = React.useState();
-    // React.useEffect(() => {}, [])
+  hoopRef = React.createRef<SVGPathElement>();
+  noodle1Ref = React.createRef<SVGPathElement>();
+  noodle2Ref = React.createRef<SVGPathElement>();
+
+  componentDidMount() {
+
+    mastheadAnim()
+    this.pathAnim(this.hoopRef)
+    this.pathAnim(this.noodle1Ref)
+    this.pathAnim(this.noodle2Ref)
+  }
+  pathAnim = (ref: React.RefObject<any>) => {
+    const path = ref.current
+    const pathlength = path.getTotalLength();
+    TweenMax.set(path, {
+      strokeDashoffset: pathlength,
+      strokeDasharray: pathlength
+    })
+    TweenMax.to(path, 1.5, {
+      strokeDashoffset: 0
+    })
+  }
     render() {
     return (
         <StyledSVG version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">    
@@ -107,8 +128,8 @@ export class AppMastHead extends React.Component {
         <ellipse className="cls-10" cx="1516.1" cy="890.66" rx="77.76" ry="26.62"/>
         <ellipse className="cls-11" cx="1516.1" cy="890.66" rx="77.76" ry="26.62"/>
       </g>
-      <path id="noodle2" ref="noodle2" d="M1382.44,779.55V403.19S1393.5,292.5,1272.5,296.5" strokeWidth="39" stroke="#f79575" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-      <path id="noodle1" ref="noodle1" d="M1252,783l-2-635s14-107-121-107S991,148,991,148V319s-5,92-88,98S768,362,776,263" stroke="#f5a7a7" strokeWidth="39" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <path id="noodle2" ref={this.noodle2Ref} d="M1382.44,779.55V403.19S1393.5,292.5,1272.5,296.5" strokeWidth="39" stroke="#f79575" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <path id="noodle1" ref={this.noodle1Ref} d="M1252,783l-2-635s14-107-121-107S991,148,991,148V319s-5,92-88,98S768,362,776,263" stroke="#f5a7a7" strokeWidth="39" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
       <g id="plants1">
         <path className="cls-16" d="M1655.79,506.91c-6.47,12.22-3.24,17-2,30.29s-8.41,15.94-12.94,27.1-1.29,16.47-2.58,30.28-6.47,14.88-11,27.63,0,30.29,3.23,54.2c2,14.8-2.68,42.2-6.55,61h-59.4c4.57-35.45,11-92.45,7.07-105.05-5.82-18.6,3.24-49.42,9.06-59s7.12-21.25,5.83-29.76,4.52-11.69,11.64-18.06,7.12-20.19,10.35-31.88,18.51-16.33,19.41-26.57c1.59-17.86,22.5-34.08,34-34.08,9.5,8.67-1.36,32.22-3.3,41.78S1662.26,494.69,1655.79,506.91Z"/>
         <path d="M1655.79,506.91c-6.48,12.22-3.24,17-2,30.29s-8.41,15.94-12.94,27.1-1.29,16.47-2.58,30.28-6.47,14.88-11,27.63,0,30.29,3.23,54.2c2,14.8-2.68,42.2-6.55,61h-37.88c2.48-20.23,4.59-42.29,3.67-53.37-1.94-23.52-8.73-35.07-1.46-50.62s19.42-14.34,16-35.46-2.91-35.07,14.56-50.22,5.82-30.29,6.79-42.64,14.07-15.14,16.5-27.5,1-27.62,19.8-44.57c9.5,8.67-1.36,32.22-3.3,41.78S1662.26,494.69,1655.79,506.91Z" style={{mixBlendMode:"multiply"}} fill="url(#linear-gradient)" opacity=".09"/>
@@ -289,7 +310,7 @@ export class AppMastHead extends React.Component {
       <path className="cls-47" d="M632.74 884.18c-4.36-1.6-7.54-2.92-9.61-3.84-.5 1.58-1.65 4.27-4 5.59-3.5 1.92-10.86-.53-10.86-.53s-5.34-6.54-10.22-7.84L596.73 883a5.8 5.8 0 0 0 5.13 7.08l39.29 3.6S644.33 888.41 632.74 884.18zM723.94 877.55l-14.54-4.38c-.77 1.65-3.1 3.41-5.25 4.18-4.07 1.44-9.85.52-9.85.52a21 21 0 0 0-9.33-5.65c-.38 1.92-1.07 5.67-1.36 7.13-.59 2.94-.19 5.53 2.81 5.5h41.94l0-.45A6.34 6.34 0 0 0 723.94 877.55z"/>
       <path className="cls-4" d="M686.42 884.85h41.94l0-.45a6.24 6.24 0 0 0 0-1.73c-1.75.14-6.16.47-10.58.54-5.69.09-16.12-.52-21.72-.61s-8.67-3-12.44-3.25C683 882.29 683.42 884.88 686.42 884.85zM629.85 891.36c-4.2-.35-17-1.67-21.28-2.63-4-.91-7.08-4.18-11.86-5.6-.66 3.37-.78 6.25 2.67 6.56l41.77 3.94a3.61 3.61 0 0 0 .39-1.71C638.9 891.84 633 891.62 629.85 891.36z"/>
       <path className="cls-2" d="M821,496.45a1.94,1.94,0,0,1-1.21-2.46l11.58-33.89a1.94,1.94,0,0,1,3.68,1.26l-11.58,33.88A1.94,1.94,0,0,1,821,496.45Z"/>
-      <path id="hoop" ref="hoop" d="M963.28,446.6S729,476,787.31,594.05c0,0,68.19,105.45,325.17,101.45C1349.94,691.8,1511,614,1463,532c0,0-36-76-161-83" stroke="#f9f7f7" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <path id="hoop" ref={this.hoopRef} d="M963.28,446.6S729,476,787.31,594.05c0,0,68.19,105.45,325.17,101.45C1349.94,691.8,1511,614,1463,532c0,0-36-76-161-83" stroke="#f9f7f7" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
       <path className="cls-25" d="M1567.94 897.13a37.15 37.15 0 0 0 8-3.3 3 3 0 0 0 1.42-3.54l-2.32-7.33c-4.08 1.59-4.81 6.77-9 9.1a11.62 11.62 0 0 1-8.31 1.48c-3.29-.54-5.89-5-10-6.38a66.77 66.77 0 0 1-14 10.59c-7.45 4.12-12.5 10-10.3 12.34 1.33 1.42 14.11 2.1 25-3S1562.63 898.54 1567.94 897.13zM1475.9 890.19c10.92-5.07 13-8.67 18.31-10.08a46.42 46.42 0 0 0 6.86-2.45 3.42 3.42 0 0 0 1.83-4.23l-2.08-6.16c-6.3 2.08-6.72 7-9.5 9-3.24 2.37-8.58 2-8.58 2-2.25-2.49-5.77-4.38-10.73-5.49A65.61 65.61 0 0 1 1459.5 882c-7.44 4.12-11.47 10.47-9.52 13S1465 895.27 1475.9 890.19z"/>
       <path className="cls-4" d="M1494.21 880.11a46.42 46.42 0 0 0 6.86-2.45 3.41 3.41 0 0 0 2-3.56 20.66 20.66 0 0 1-5.86 3.68c-3 1-6 1.58-9.63 3.86a166.51 166.51 0 0 1-18 9.37c-4.69 1.87-13.92 4.13-20 3a2.4 2.4 0 0 0 .44 1c2 2.56 15 .25 25.92-4.83S1488.9 881.52 1494.21 880.11zM1558.14 900.11a86.92 86.92 0 0 1-15.68 7.36c-4.85 1.7-12.33 2-19.5 1.36a1.85 1.85 0 0 0 .5 1.26c1.33 1.42 14.11 2.1 25-3s14.13-8.58 19.44-10a37.15 37.15 0 0 0 8-3.3 3 3 0 0 0 1.42-3.54l-.18-.56a38.49 38.49 0 0 1-8.91 4.78C1564 895.82 1561.9 897.66 1558.14 900.11z"/>
       <path className="cls-25" d="M1170.26,287.76c1.14,9.33-3.36,19.56-11.74,19.56s-17.49-9.11-19-18.39c-1.37-8.6,3.38-18.13,11.73-18.77C1161.46,269.38,1169.09,278.18,1170.26,287.76Z"/>
@@ -305,3 +326,28 @@ export class AppMastHead extends React.Component {
 //   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
 // </svg>
 // )
+
+
+function mastheadAnim() {
+  const tl = new TimelineMax()
+  tl.add("start")
+  tl.from("#bird", 3, {
+    x: -700,
+    ease: Sine.easeOut
+  }, "start")
+  tl.to("#plants1", 1, {
+    rotation: 5, 
+    repeat: -1, 
+    yoyo: true,
+    transformOrigin: "50% 100%",
+    ease: Sine.easeInOut
+  }, "start")
+  tl.to("#plants2", 1, {
+    rotation: -5, 
+    repeat: -1, 
+    yoyo: true,
+    transformOrigin: "50% 100%",
+    ease: Sine.easeInOut
+  }, "start")
+  return tl
+}
