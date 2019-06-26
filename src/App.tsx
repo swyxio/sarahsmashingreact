@@ -27,7 +27,7 @@ const P: React.FC = ({ children }) => <p style={{ margin: "2rem 0rem 1rem" }} ch
 const Img: React.FC<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>> = (props) => (
   <img
     style={{
-      width: "400px",
+      width: "60vw",
       margin: "0 auto",
       padding: "1rem",
       display: "block"

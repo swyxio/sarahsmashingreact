@@ -321,12 +321,6 @@ export class AppMastHead extends React.Component {
     }
 };
 
-// export default AppMastHead;
-// export const AppMastHead = () => (
-//   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
-// </svg>
-// )
-
 
 function mastheadAnim() {
   const tl = new TimelineMax()
@@ -336,14 +330,14 @@ function mastheadAnim() {
     ease: Sine.easeOut
   }, "start")
   tl.to("#plants1", 1, {
-    rotation: 5, 
+    rotation: 200, // normally it's 5
     repeat: -1, 
     yoyo: true,
     transformOrigin: "50% 100%",
     ease: Sine.easeInOut
   }, "start")
   tl.to("#plants2", 1, {
-    rotation: -5, 
+    rotation: -200,  // normally it's -5
     repeat: -1, 
     yoyo: true,
     transformOrigin: "50% 100%",
