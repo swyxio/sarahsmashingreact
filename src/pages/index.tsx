@@ -45,7 +45,15 @@ export const Main: React.FC<MainProps> = () => {
       <div className="links">
         <p>Go follow Hawk Philsworth</p>
       </div>
-      <div className="nextpage"><Link to="/projects" style={{color: 'blue'}}>Projects ></Link></div>
+      <div className="nextpage">
+        <Link to="/projects" style={{ color: "blue" }}>
+          Projects >
+        </Link>
+        <hr />
+        <Link to="/guestbook" style={{ color: "blue" }}>
+          Guestbook >
+        </Link>
+      </div>
     </StyledMain>
   )
 }

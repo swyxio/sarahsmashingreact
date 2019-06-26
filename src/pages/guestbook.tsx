@@ -58,7 +58,9 @@ const GuestbookPage = () => {
           <h2>A messaging app for super-villains</h2>
         </div>
         <div style={{ textAlign: "center" }}>
-          <QRCode value={window.location.href} />
+          <div style={{ border: "3px solid white", marginBottom: "1rem", display: "inline-block" }}>
+            <QRCode value={window.location.href} />
+          </div>
           <h3>
             <a href="https://smashingtoronto-react.netlify.com">{window.location.href}</a>
           </h3>
