@@ -43,7 +43,9 @@ export const Main: React.FC<MainProps> = () => {
         <p>Please eat tacos.</p>
       </div>
       <div className="links">
-        <p>Go follow Hawk Philsworth</p>
+        <p>
+          Go <a href="https://twitter.com/philhawksworth/">follow Hawk Philsworth</a>
+        </p>
       </div>
       <div className="nextpage">
         <Link to="/projects" style={{ color: "blue" }}>
