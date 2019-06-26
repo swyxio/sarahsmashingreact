@@ -20,8 +20,8 @@ const H1: React.FC = ({ children }) => (
 const H2: React.FC = ({ children }) => (
   <h2 style={{ margin: "2rem 0rem 1rem", fontWeight: "bold", color: "#aaffa9" }} children={children} />
 )
-const A: React.FC = ({ children }) => (
-  <a style={{ color: "lightblue", cursor: "pointer" }} target="_blank" children={children} />
+const A: React.FC<{href: string}> = ({ children, href }) => (
+  <a style={{ color: "lightblue", cursor: "pointer" }} href={href} target="_blank" children={children} />
 )
 const P: React.FC = ({ children }) => <p style={{ margin: "2rem 0rem 1rem" }} children={children} />
 const Img: React.FC<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>> = (props) => (
