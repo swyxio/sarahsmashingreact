@@ -57,14 +57,16 @@ const GuestbookPage = () => {
           <img src={Logo} alt="Logo" />
           <h2>A messaging app for super-villains</h2>
         </div>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ border: "3px solid white", marginBottom: "1rem", display: "inline-block" }}>
-            <QRCode value={window.location.href} />
+        {typeof window !== "undefined" && (
+          <div style={{ textAlign: "center" }}>
+            <div style={{ border: "3px solid white", marginBottom: "1rem", display: "inline-block" }}>
+              <QRCode value={window.location.href} />
+            </div>
+            <h3>
+              <a href="https://smashingtoronto-react.netlify.com">{window.location.href}</a>
+            </h3>
           </div>
-          <h3>
-            <a href="https://smashingtoronto-react.netlify.com">{window.location.href}</a>
-          </h3>
-        </div>
+        )}
         {messages === null && <div>Loading guestbook...</div>}
         {messages &&
           (["BadRequest", "Unauthorized"].includes(messages.name) ? (
