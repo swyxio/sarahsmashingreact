@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { AppMastHead } from "components/AppMasthead"
+import { Link } from "@reach/router"
 
 const StyledMain = styled("main")`
   width: 100vw;
@@ -44,7 +45,7 @@ export const Main: React.FC<MainProps> = () => {
       <div className="links">
         <p>Go follow Hawk Philsworth</p>
       </div>
-      <div className="nextpage">Projects ></div>
+      <div className="nextpage"><Link to="/projects" style={{color: 'blue'}}>Projects ></Link></div>
     </StyledMain>
   )
 }
