@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from "react"
-
 import Logo from "./RevengersLogo@2x.png"
+import QRCode from "qrcode.react"
+
+/**
+ *
+ * note to browsers of this code:
+ *
+ * this hidden page requires a faunadb instance and netlify function endpoint at `/.netlify/functions/fauna-crud` to work
+ *
+ * to get this working from a raw repo, use the Netlify CLI and run `netlify functions:create` and pick `fauna-crud`.
+ *
+ * for a full demo pls check out Swyx's session at SmashingConf Toronto
+ *
+ *
+ */
 
 type Message = {
   data: {
@@ -43,11 +56,13 @@ const GuestbookPage = () => {
         <div className="revengers-title">
           <img src={Logo} alt="Logo" />
           <h2>A messaging app for super-villains</h2>
-          <h2>
-            <a href="https://smashingtoronto-react.netlify.com">smashingtoronto-react.netlify.com</a>
-          </h2>
         </div>
-
+        <div style={{ textAlign: "center" }}>
+          <QRCode value={window.location.href} />
+          <h3>
+            <a href="https://smashingtoronto-react.netlify.com">{window.location.href}</a>
+          </h3>
+        </div>
         {messages === null && <div>Loading guestbook...</div>}
         {messages &&
           (["BadRequest", "Unauthorized"].includes(messages.name) ? (
