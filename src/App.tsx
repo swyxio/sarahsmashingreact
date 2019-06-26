@@ -19,6 +19,9 @@ function App() {
           <li>
             <Link to="/projects">Projects</Link>
           </li>
+          <li>
+           <a href="https://github.com/sw-yx/sarahsmashingreact" target="_blank">Source</a>
+          </li>
         </ul>
       </nav>
       <React.Suspense fallback={<em>Loading...</em>}>
