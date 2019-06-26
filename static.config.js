@@ -23,6 +23,7 @@ export default {
   },
   plugins: [
     "react-static-plugin-typescript",
+    "react-static-plugin-mdx",
     [
       require.resolve("react-static-plugin-source-filesystem"),
       {

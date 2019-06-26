@@ -16,11 +16,13 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-static": "^7.1.0",
+    "react-static-plugin-mdx": "^7.1.0",
     "react-static-plugin-reach-router": "latest",
     "react-static-plugin-sitemap": "latest",
     "react-static-plugin-source-filesystem": "latest",
     "react-static-plugin-typescript": "latest",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "@mdx-js/react": "^1.0.21"
   },
   "devDependencies": {
     "@types/gsap": "^1.20.2",
