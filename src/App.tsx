@@ -1,9 +1,10 @@
 import React from "react"
-import { Root, Routes, addPrefetchExcludes } from "react-static"
+import { Root, Routes, addPrefetchExcludes, Head } from "react-static"
 import { Link, Router } from "@reach/router"
 // import FancyDiv from 'components/FancyDiv'
 import Dynamic from "containers/Dynamic"
 import "./app.css"
+import "./revengers.css"
 
 import { MDXProvider } from "@mdx-js/react"
 // Any routes that start with 'dynamic' will be treated as non-static routes
@@ -39,6 +40,9 @@ const Img: React.FC<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageEle
 function App() {
   return (
     <Root>
+      <Head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Roboto&display=swap" />
+      </Head>
       <nav className="appnav">
         <ul>
           <li>
